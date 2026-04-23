@@ -1,0 +1,90 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #111;
+    color: white;
+    line-height: 1.6;
+}
+
+/* Scrollytelling Core Logic */
+.slide {
+    height: 100vh; /* Full screen height */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    /* The Parallax Effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    /* Overlay for text readability */
+    position: relative;
+}
+
+/* Subtle overlay to make text pop against images */
+.slide::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+}
+
+/* Specific Section Backgrounds */
+.intro {
+    background-image: url('https://images.unsplash.com/photo-1511447333015-45b65e60f6d5?auto=format&fit=crop&q=80&w=2000');
+}
+
+.gaming {
+    background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=2000');
+}
+
+.cooking {
+    background-image: url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=2000');
+}
+
+.basketball {
+    background-image: url('https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&q=80&w=2000');
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.5rem; }
+    
+    /* Some mobile browsers struggle with fixed backgrounds; 
+       scroll is a safer fallback for performance */
+    .slide {
+        background-attachment: scroll;
+    }
+}
